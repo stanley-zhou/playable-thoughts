@@ -13,8 +13,7 @@ Small ideas I think are worth keeping, each turned into something you can play w
 Each thought lives in its own folder:
 
 - `index.html`: the playable page, a single self-contained file
-- `README.md`: the idea and how to play
-- `NOTES.md`: how it changed from version to version, and why
+- `README.md`: the idea, how to play, and credits
 
 The ideas, design decisions and iterations are mine. The code is written with [Claude](https://claude.ai) (Anthropic) as a collaborator.
 

@@ -34,10 +34,6 @@ There are no scores. What you end up with is whatever grew in the pot.
 
 The colors drain a little more with every stage.
 
-## Design notes
-
-The game went through four versions. [NOTES.md](NOTES.md) records what changed in each one and why.
-
 ## Credits
 
 - Inspired by *Plants vs. Zombies* by PopCap Games. This is an unofficial tribute, not affiliated with or endorsed by PopCap or EA.
