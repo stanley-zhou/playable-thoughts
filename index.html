@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playable Thoughts</title>
+<meta name="description" content="Small ideas worth keeping, each turned into something you can play with. By Stanley Zhou.">
+<meta property="og:title" content="Playable Thoughts">
+<meta property="og:description" content="Small ideas worth keeping, each turned into something you can play with.">
+<meta property="og:image" content="https://stanley-zhou.github.io/playable-thoughts/agents-vs-tasks/preview.png">
+<meta property="og:url" content="https://stanley-zhou.github.io/playable-thoughts/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9 18h14l-2.5 11h-9z' fill='%23d9784a' stroke='%232e2b28' stroke-width='1.5'/%3E%3Cpath d='M16 18c0-5 1-8 4-11' fill='none' stroke='%233c6e2e' stroke-width='2' stroke-linecap='round'/%3E%3Cellipse cx='20.5' cy='9' rx='3.5' ry='1.6' transform='rotate(-35 20.5 9)' fill='%236cbf4a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: one notebook page on a desk. Title in the top margin area, index cards for each thought. */
+:root{
+  --desk:#e9e1d1;
+  --paper:#fbf8f0;
+  --rule:#cfdcec;
+  --margin:#e7a3a3;
+  --ink:#2e2b28;
+  --pencil:#5b5248;
+  --faint:#857b6e;
+  --marker:#ffe680;
+  --hand:Caveat,"Patrick Hand","Comic Sans MS","Segoe Print",cursive;
+  --print:"Patrick Hand","Comic Sans MS","Segoe Print",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--ink)}
+body{font-family:var(--print);font-size:19px;line-height:1.5;padding:32px max(16px,env(safe-area-inset-left,0px)) 48px max(16px,env(safe-area-inset-right,0px))}
+.page{max-width:920px;margin:0 auto;position:relative;background-color:var(--paper);
+  background-image:linear-gradient(90deg,transparent 70px,var(--margin) 70px,var(--margin) 71.5px,transparent 71.5px,transparent 75px,var(--margin) 75px,var(--margin) 76.5px,transparent 76.5px),
+    repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--rule) 31px,var(--rule) 32px);
+  padding:56px 40px 56px 108px;border-radius:6px;box-shadow:0 1px 0 rgba(0,0,0,.08),0 12px 34px rgba(70,55,30,.18)}
+h1{margin:0;font-family:var(--hand);font-weight:700;font-size:clamp(52px,9vw,84px);line-height:.95;text-wrap:balance}
+.lede{margin:10px 0 0;max-width:34ch;font-size:22px;color:var(--pencil)}
+.by{margin:14px 0 0;font-size:16px;color:var(--faint)}
+.by a{color:inherit}
+.thoughts{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:36px}
+.card{position:relative;background:#fffdf6;padding:16px 16px 18px;border:2px solid var(--ink);
+  border-radius:255px 14px 225px 14px/14px 225px 14px 255px;box-shadow:4px 5px 0 rgba(46,43,40,.12);transform:rotate(-.6deg)}
+.card::before{content:"";position:absolute;top:-12px;left:50%;width:80px;height:22px;transform:translateX(-50%) rotate(2deg);background:rgba(217,207,191,.85)}
+.card img{display:block;width:100%;height:auto;aspect-ratio:1100/688;border:1.5px solid var(--ink);border-radius:4px}
+.card h2{margin:14px 0 0;font-family:var(--hand);font-weight:700;font-size:38px;line-height:1}
+.card h2 a{color:inherit;text-decoration:none}
+.date{margin:2px 0 0;font-size:15px;color:var(--faint)}
+.card p.what{margin:8px 0 0}
+.card .tag{font-family:var(--hand);font-weight:700;font-size:24px;background:linear-gradient(transparent 55%,rgba(255,230,128,.8) 55%)}
+.links{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:14px}
+.play{font-family:var(--hand);font-weight:700;font-size:26px;line-height:1;color:var(--ink);text-decoration:none;background:var(--marker);
+  padding:6px 16px 8px;border:2px solid var(--ink);border-radius:15px 225px 15px 255px/255px 15px 225px 15px;box-shadow:3px 3px 0 var(--ink)}
+.play:hover{background:#ffd84d}
+.play:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.links a.notes{color:var(--pencil)}
+a:focus-visible{outline:3px dashed var(--ink);outline-offset:4px}
+.next{align-self:start;display:flex;align-items:center;justify-content:center;min-height:200px;border:2px dashed #b9b0a4;border-radius:12px;color:var(--faint);font-family:var(--hand);font-size:30px;transform:rotate(.5deg)}
+footer{max-width:920px;margin:20px auto 0;font-size:15px;color:var(--faint)}
+footer a{color:inherit}
+@media (max-width:600px){
+  .page{padding:40px 20px 40px 44px;background-image:linear-gradient(90deg,transparent 24px,var(--margin) 24px,var(--margin) 25.5px,transparent 25.5px),repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--rule) 31px,var(--rule) 32px)}
+}
+@media (prefers-reduced-motion:reduce){.card,.next{transform:none}}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1>Playable Thoughts</h1>
+  <p class="lede">Small ideas I think are worth keeping, each turned into something you can play with.</p>
+  <p class="by">by Stanley Zhou · <a href="https://github.com/stanley-zhou/playable-thoughts">source on GitHub</a></p>
+
+  <ul class="thoughts">
+    <li class="card">
+      <a href="agents-vs-tasks/" aria-label="Play Agents vs. Tasks"><img src="agents-vs-tasks/preview.png" alt="Five AI agents defend their lanes on notebook paper while sticky-note tasks walk toward a desk; notes circle the player's head." loading="lazy"></a>
+      <h2><a href="agents-vs-tasks/">Agents vs. Tasks</a></h2>
+      <p class="date">October 2026 · a small game</p>
+      <p class="what">What happens to your own thinking when you run more and more AI agents at once.</p>
+      <p class="what"><span class="tag">Human attention is all you need.</span></p>
+      <div class="links">
+        <a class="play" href="agents-vs-tasks/">Play</a>
+        <a class="notes" href="https://github.com/stanley-zhou/playable-thoughts/blob/main/agents-vs-tasks/NOTES.md">Design notes</a>
+      </div>
+    </li>
+    <li class="next" aria-hidden="true">next thought…</li>
+  </ul>
+</main>
+<footer>Code under the MIT License. Credits for inspirations and fonts are in each thought's README.</footer>
+</body>
+</html>
